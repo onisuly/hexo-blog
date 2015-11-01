@@ -1,6 +1,6 @@
 title:  Pega 7如何导出应用程序
 date: 2015-10-25 16:47:19
-updated: 2015-10-25 16:47:24
+updated: 2015-11-01 11:27:37
 comments: true
 tags: pega
 categories: pega
@@ -14,15 +14,23 @@ categories: pega
 
 ## 操作步骤
 
-### 打开应用导出页面
+### 打开导出页面
 
-点击左上角DesignerStudio图标，依次选择Application -> Distribution -> Export
+点击左上角DesignerStudio图标，依次选择Application -> Distribution -> Package
 
-![application-export-menu](application-export-menu.png)
+![application-package-menu](application-package-menu.png)
 
 ### 配置导出参数
 
-在导出模式中选择Product
+在Package标签配置好你要导出的Application，Ruleset Name和RuleSet version
+
+![package-preference](package-preference.png)
+
+一路点击Next，直到遇到如下画面
+
+![package-final](package-final.png)
+
+然后切换到Export标签在导出模式中选择Product
 
 ![export-preference-export-mode](export-preference-export-mode.png)
 
@@ -69,3 +77,24 @@ categories: pega
 
 ![export-product](export-product.png)
 
+---
+
+## 附：导出单条Rule
+
+前面我们实现了整个应用的导出，但如果我们只想导出一条或几条Rule时该怎么办呢？
+
+其实我们在[配置导出参数](#配置导出参数)的第一步，在Package标签中一路点击Next到最后时，Pega 7自动为我们生成了一条Product Rule。我们在[设置Product rule](#设置Product_rule)时仅仅是设置其允许导出未锁定版本的RuleSet，其实我们可以做的更多。
+
+在我们想导出的Rule的右上角，点击Action按钮并选择View XML
+
+![view-xml](view-xml.png)
+
+然后搜索pzInsKey
+
+![search-pzinskey](search-pzinskey.png)
+
+然后我们新建一个Product的Rule，把pzInsKey里面的内容填到Individual instances to include区域的Key下，Label下的内容可以随便填
+
+![individual-instances](individual-instances.png)
+
+保存Product Rule后点击最下面的Create product file按钮即可导出单条Rule了

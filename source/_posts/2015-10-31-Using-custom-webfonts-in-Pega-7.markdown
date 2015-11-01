@@ -1,6 +1,6 @@
 title:  在Pega 7中使用自定义字体
 date: 2015-10-31 13:48:45
-updated: 2015-10-31 13:48:50
+updated: 2015-11-01 11:27:00
 comments: true
 tags: pega
 categories: pega
@@ -90,7 +90,14 @@ font-family: 'cinzelregular';
 
 ![create-new-case](create-new-case.png)
 
-## 字体图标
+## 参考资料
+* [PDN: Using custom webfonts in your Pega 7 application] [using-custom-webfonts-in-your-pega-7-application]
+
+[using-custom-webfonts-in-your-pega-7-application]: https://pdn.pega.com/pegatube/using-custom-webfonts-in-your-pega-7-application "Using custom webfonts in your Pega 7 application"
+
+---
+
+## 附：字体图标
 
 使用Webfont并不是仅仅能改变界面的字体这么简单，你还可以把WebFont当做图标来使用。
 
@@ -105,8 +112,3 @@ font-family: 'cinzelregular';
 看下最后的效果吧
 
 ![view-icon](view-icon.png)
-
-## 参考资料
-* [PDN: Using custom webfonts in your Pega 7 application] [using-custom-webfonts-in-your-pega-7-application]
-
-[using-custom-webfonts-in-your-pega-7-application]: https://pdn.pega.com/pegatube/using-custom-webfonts-in-your-pega-7-application "Using custom webfonts in your Pega 7 application"
