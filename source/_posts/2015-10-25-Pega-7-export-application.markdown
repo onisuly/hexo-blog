@@ -79,7 +79,7 @@ categories: pega
 
 ---
 
-## 附：导出单条Rule
+## 附1：导出单条Rule
 
 前面我们实现了整个应用的导出，但如果我们只想导出一条或几条Rule时该怎么办呢？
 
@@ -98,3 +98,13 @@ categories: pega
 ![individual-instances](individual-instances.png)
 
 保存Product Rule后点击最下面的Create product file按钮即可导出单条Rule了
+
+## 附2：更简单的导出方法
+
+在Application Menu中选择Open Overview
+
+![open-overview](open-overview.png)
+
+点击左上角的Action按钮，依次选择 Package Application -> Basic 即可导出应用程序了
+
+![package-application](package-application.png)
