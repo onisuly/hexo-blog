@@ -2,7 +2,7 @@ title:  Pega 7如何导出应用程序
 date: 2015-10-25 16:47:19
 updated: 2015-11-01 11:27:37
 comments: true
-tags: pega
+tags: pega7
 categories: pega
 ---
 

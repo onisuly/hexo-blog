@@ -2,7 +2,7 @@ title:  在Pega 7中使用自定义字体
 date: 2015-10-31 13:48:45
 updated: 2015-11-01 11:27:00
 comments: true
-tags: pega
+tags: pega7
 categories: pega
 ---
 

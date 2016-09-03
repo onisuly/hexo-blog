@@ -2,7 +2,7 @@ title:  自定义Pega 7登录界面
 date: 2015-09-28 11:13:03
 updated: 2015-09-30 21:01:19
 comments: true
-tags: pega
+tags: pega7
 categories: pega
 ---
 
