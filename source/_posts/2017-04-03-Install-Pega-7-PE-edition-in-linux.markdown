@@ -1,6 +1,6 @@
 title:  在Linux下安装Pega7 PE版
 date: 2017-04-03 20:21:29
-updated: 2017-04-03 20:21:34
+updated: 2017-04-04 11:42:29
 comments: true
 tags: pega7
 categories: pega
@@ -59,7 +59,7 @@ pg_restore -U pega -h 127.0.0.1 -d pega pega.dump
 
 ### 配置Tomcat
 
-在上一步的解压后，继续解压PRPC_PE.jar，再解压PersonalEdition.zip，这样我们就的到了tomcat，但现在的tomcat是不能用的，需要再配置一下
+在上一步的解压后，继续解压PRPC_PE.jar，再解压PersonalEdition.zip，这样我们就得到了tomcat，但现在的tomcat是不能用的，需要再配置一下
 
 ![tomcat-configuration](tomcat-configuration.png)
 
@@ -96,3 +96,10 @@ chmod +x *.sh
 然后等待Pega7启动好就可以使用了
 
 ![run-pega7](run-pega7.png)
+
+## 参考资料
+* [PostgreSQL: Documentation: 9.3: pg_dump] [postgresql-documentation-pg_dump]
+* [PostgreSQL: Documentation: 9.3: pg_restore] [postgresql-documentation-pg_restore]
+
+[postgresql-documentation-pg_dump]: https://www.postgresql.org/docs/9.3/static/app-pgdump.html "PostgreSQL: Documentation: 9.3: pg_dump"
+[postgresql-documentation-pg_restore]: https://www.postgresql.org/docs/9.3/static/app-pgrestore.html "PostgreSQL: Documentation: 9.3: pg_restore"
