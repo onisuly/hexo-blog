@@ -1,6 +1,6 @@
 title:  在Linux下安装Pega7 PE版
 date: 2017-04-03 20:21:29
-updated: 2017-12-22 21:22:51
+updated: 2017-12-22 21:52:20
 comments: true
 tags: pega7
 categories: pega
@@ -26,7 +26,7 @@ JAVA_HOME="$HOME/Software/jdk"
 PATH="$JAVA_HOME/bin:$PATH"
 ```
 
-### 安装PostgreSQL数据库（Pega7.1）
+### 安装PostgreSQL数据库（Pega7.1.9）
 
 这里以Ubuntu为例，安装PostgreSQL数据库和pgadmin3
 ```SHELL
@@ -66,7 +66,7 @@ ALTER USER pega SET SEARCH_PATH to "$user",personaledition,public;
 ```
 > 退出数据库
 
-### 导入Pega数据（Pega7.1）
+### 导入Pega数据（Pega7.1.9）
 
 找到第一步中下载到的Pega7 PE版，解压
 
@@ -82,7 +82,7 @@ pg_restore -U pega -h 127.0.0.1 -d pega sqlj.dump
 pg_restore -U pega -h 127.0.0.1 -d pega pega.dump
 ```
 
-### 安装PostgreSQL数据库和导入数据（Pega7.2）
+### 安装PostgreSQL数据库和导入数据（Pega7.2.2）
 
 这里以Ubuntu为例，安装PostgreSQL数据库和pgadmin3
 ```SHELL
