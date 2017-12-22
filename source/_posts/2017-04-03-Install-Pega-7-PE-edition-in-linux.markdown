@@ -1,6 +1,6 @@
 title:  在Linux下安装Pega7 PE版
 date: 2017-04-03 20:21:29
-updated: 2017-04-07 21:54:28
+updated: 2017-12-22 20:05:48
 comments: true
 tags: pega7
 categories: pega
@@ -54,7 +54,8 @@ sudo -u postgres psql
 ```
 > 登录PostgreSQL数据库
 > ```SQL
-create user pega with password 'pega';
+CREATE ROLE pega LOGIN SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION;
+ALTER USER pega PASSWORD 'pega';
 CREATE DATABASE pega WITH OWNER pega TEMPLATE template0 ENCODING 'UTF8';
 grant all privileges on database pega to pega;
 ALTER USER pega SET SEARCH_PATH to "$user",personaledition,public;
