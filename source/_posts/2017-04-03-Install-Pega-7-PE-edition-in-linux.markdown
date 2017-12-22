@@ -1,12 +1,12 @@
 title:  在Linux下安装Pega7 PE版
 date: 2017-04-03 20:21:29
-updated: 2017-12-22 20:05:48
+updated: 2017-12-22 21:22:51
 comments: true
 tags: pega7
 categories: pega
 ---
 
-> Pega版本：Pega 7.1.9
+> Pega版本：Pega 7.1.9, Pega 7.2.2
 
 ## 前言
 我们可以从Pega PDN上下载PE版本供日常练习使用，但是Pega7的PE版默认只提供了Windows的安装向导，若要在Linux下使用就要自己手动安装了。
@@ -26,7 +26,7 @@ JAVA_HOME="$HOME/Software/jdk"
 PATH="$JAVA_HOME/bin:$PATH"
 ```
 
-### 安装PostgreSQL数据库
+### 安装PostgreSQL数据库（Pega7.1）
 
 这里以Ubuntu为例，安装PostgreSQL数据库和pgadmin3
 ```SHELL
@@ -66,7 +66,7 @@ ALTER USER pega SET SEARCH_PATH to "$user",personaledition,public;
 ```
 > 退出数据库
 
-### 导入Pega数据
+### 导入Pega数据（Pega7.1）
 
 找到第一步中下载到的Pega7 PE版，解压
 
@@ -82,6 +82,62 @@ pg_restore -U pega -h 127.0.0.1 -d pega sqlj.dump
 pg_restore -U pega -h 127.0.0.1 -d pega pega.dump
 ```
 
+### 安装PostgreSQL数据库和导入数据（Pega7.2）
+
+这里以Ubuntu为例，安装PostgreSQL数据库和pgadmin3
+```SHELL
+sudo apt-get install postgresql pgadmin3
+```
+
+> 登录PostgreSQL数据库
+```SHELL
+sudo -u postgres psql
+```
+> 执行
+```SQL
+ALTER USER postgres PASSWORD 'postgres';
+
+ALTER USER postgres SET SEARCH_PATH to "$user",postgres,public;
+```
+> 退出数据库
+> ```SHELL
+\q
+```
+
+找到第一步中下载到的Pega7 PE版，解压
+
+![pega7-pe-edition](pega7-pe-edition.png)
+
+找到data目录下的两个数据库dump文件
+
+![database-dump-file](database-dump-file.png)
+
+恢复Pega dump文件到数据库
+```SQL
+pg_restore -U postgres -h 127.0.0.1 -d postgres sqlj.dump
+```
+
+> 登录PostgreSQL数据库
+```SHELL
+sudo -u postgres psql
+```
+> 执行
+```SQL
+UPDATE sqlj.classpath_entry SET schemaname='public';
+
+UPDATE sqlj.jar_repository SET jarowner='public';
+```
+> 退出数据库
+> ```SHELL
+\q
+```
+
+恢复第二个Pega dump文件到数据库
+```SQL
+pg_restore -U postgres -h 127.0.0.1 -d postgres pega.dump
+```
+
+
 ### 配置Tomcat
 
 在上一步的解压后，继续解压PRPC_PE.jar，再解压PersonalEdition.zip，这样我们就得到了tomcat，但现在的tomcat是不能用的，需要再配置一下
@@ -92,7 +148,7 @@ pg_restore -U pega -h 127.0.0.1 -d pega pega.dump
 
 ![create-pega-directory](create-pega-directory.png)
 
-进入tomcat的bin目录，把所以shell脚本加上运行权限
+进入tomcat的bin目录，把所有shell脚本加上运行权限
 ```SHELL
 chmod +x *.sh
 ```
